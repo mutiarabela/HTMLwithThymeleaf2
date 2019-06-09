@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>View User</title>
+</head>
+<body>
+<div>
+    <h2>View User</h2>
+    <div>
+        <div>
+            <form action="#" th:object="${user}">
+                <table>
+                    <tr>
+                        <td><label for="name">Name</label></td>
+                        <td colspan="2"><input type="text" th:field="*{name}" id="name" th:readonly="readonly"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="birthplace">Place of Birth</label></td>
+                        <td colspan="2"><input type="text" th:field="*{birthplace}" id="birthplace" th:readonly="readonly"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="birthdate">Name</label></td>
+                        <td colspan="2"><input type="text" th:field="*{birthdate}" id="birthdate" th:readonly="readonly"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Gender</label></td>
+                        <td colspan="2">
+                            <input type="radio" th:value=0 th:field="*{gender}" th:checked="${gender == 0} ? 'checked' : ' '" th:readonly="readonly"><label>Male</label>
+                            <input type="radio" th:value=1 th:field="*{gender}" th:checked="${gender == 1} ? 'checked' : ' '" th:readonly="readonly"><label>Female</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="address">Address</label></td>
+                        <td colspan="2"><textarea type="text" th:field="*{address}" id="address" th:readonly="readonly"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><label>Position</label></td>
+                        <td colspan="2">
+                            <select th:field="*{position}">
+                                <option th:value=0 th:selected="${position == 0} ? 'selected' : ' '" th:readonly="readonly">Developer</option>
+                                <option th:value=1 th:selected="${position == 1} ? 'selected' : ' '" th:readonly="readonly">Team Leader</option>
+                                <option th:value=2 th:selected="${position == 2} ? 'selected' : ' '" th:readonly="readonly">Scrum Master</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">Email</label></td>
+                        <td><input type="text" th:field="*{email}" id="email" th:readonly="readonly"></td>
+                    </tr>
+                    <tr><td colspan="3"><p><a href="/index">Back</a></p></td></tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

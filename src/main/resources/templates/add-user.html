@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add User</title>
+</head>
+<body>
+  <form action="#" th:action="@{/adduser}" th:object="${user}" method="post">
+    <table>
+        <tr>
+            <td><label for="name">Name</label></td>
+            <td><input type="text" th:field="*{name}" id="name" placeholder="Name"></td>
+            <td><span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span></td>
+        </tr>
+        <tr>
+            <td><label for="birthplace">Place of Birth</label></td>
+            <td colspan="2"><input type="text" th:field="*{birthplace}" id="birthplace" placeholder="Place of Birth"></td>
+        </tr>
+        <tr>
+            <td><label for="birthdate">Date of Birth</label></td>
+            <td colspan="2"><input type="text" th:field="*{birthdate}" id="birthdate" placeholder="Date of Birth"></td>
+        </tr>
+        <tr>
+            <td><label>Gender</label></td>
+            <td colspan="2">
+                <input type="radio" th:field="*{gender}" th:value=0><label>Male</label>
+                <input type="radio" th:field="*{gender}" th:value=1><label>Female</label>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="address">Address</label></td>
+            <td colspan="2"><textarea type="text" th:field="*{address}" id="address" placeholder="Your current Address"></textarea></td>
+        </tr>
+        <tr>
+            <td><label>Position</label></td>
+            <td colspan="2">
+                <select th:field="*{position}">
+                    <option th:value=0 >Developer</option>
+                    <option th:value=1 >Team Leader</option>
+                    <option th:value=2 >Scrum Master</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="email">Email</label></td>
+            <td><input type="text" th:field="*{email}" id="email" placeholder="Email"></td>
+            <td><span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span></td>
+        </tr>
+        <tr><td colspan="3"><input type="submit" value="Add User"></td></tr>
+    </table>
+  </form>
+</body>
+</html>
